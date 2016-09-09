@@ -1,11 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-gulp.task('test',function(){
-
-	return console.log('this is a test');
-});
-
 
 gulp.task('sass',function(){
 	return gulp.src('src/sass/*.sass')
@@ -24,4 +19,10 @@ gulp.task('html', function () {
   .pipe(gulp.dest('dist'))
 })
 
-gulp.task('build', ['sass', 'js', 'html'])
+gulp.task('build', ['sass', 'js', 'html']);
+
+gulp.task('watch',function(){
+	gulp.watch('sass/*.scss',['sass']);
+});
+
+gulp.task('go',['watch','sass']);
